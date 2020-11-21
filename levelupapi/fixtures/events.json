@@ -1,0 +1,32 @@
+[
+  {
+      "model": "levelupapi.Event",
+      "pk": 1,
+      "fields": {
+          "name": "Thanksgiving Monopoly Madness",
+          "datetime": "2020-11-25 20:45:45.166703",
+          "creator": 1,
+          "game": 1 
+      }
+  },
+  {
+      "model": "levelupapi.Event",
+      "pk": 2,
+      "fields": {
+        "name": "Sword and Sorcery Fest",
+        "datetime": "2020-11-22 12:20:45.166703",
+        "creator": 1,
+        "game": 2 
+      }
+  },
+  {
+      "model": "levelupapi.Event",
+      "pk": 3,
+      "fields": {
+        "name": "Lan Party",
+        "datetime": "2020-11-30 08:30:45.166703",
+        "creator": 1,
+        "game": 3  
+      }
+  }
+]

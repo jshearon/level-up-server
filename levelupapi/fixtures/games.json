@@ -1,0 +1,32 @@
+[
+  {
+      "model": "levelupapi.Game",
+      "pk": 1,
+      "fields": {
+          "name": "Monopoly",
+          "gamer": 1,
+          "game_type": 1,
+          "max_players": 6 
+      }
+  },
+  {
+      "model": "levelupapi.Game",
+      "pk": 2,
+      "fields": {
+        "name": "Dungeons and Dragons",
+        "gamer": 1,
+        "game_type": 2,
+        "max_players": 10 
+      }
+  },
+  {
+      "model": "levelupapi.Game",
+      "pk": 3,
+      "fields": {
+        "name": "World of Warcraft",
+        "gamer": 1,
+        "game_type": 3,
+        "max_players": 8 
+      }
+  }
+]
