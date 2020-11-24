@@ -3,9 +3,10 @@ from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
 
 class Event(models.Model):
-  name = models.TextField()
-  datetime = models.DateTimeField()
-  creator = models.ForeignKey("Gamer",
+  description = models.TextField()
+  date = models.DateField(null=True)
+  time = models.TimeField(null=True)
+  organizer = models.ForeignKey("Gamer",
     on_delete=CASCADE,
     related_name="events",
     related_query_name="event"
