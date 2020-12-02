@@ -20,3 +20,10 @@ class Event(models.Model):
     related_name="player_events",
     related_query_name="player_event"
     ) 
+  @property
+  def joined(self):
+    return self.__joined
+
+  @joined.setter
+  def joined(self, value):
+    self.__joined = value
