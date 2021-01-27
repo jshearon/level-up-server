@@ -68,7 +68,7 @@ class Games(ViewSet):
             # The `2` at the end of the route becomes `pk`
             game = Game.objects.get(pk=pk)
             serializer = GameSerializer(game, context={'request': request})
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)
 
@@ -86,11 +86,11 @@ class Games(ViewSet):
         game = Game.objects.get(pk=pk)
         game.title = request.data["title"]
         game.maker = request.data["maker"]
-        game.number_of_players = request.data["numberOfPlayers"]
-        game.skill_level = request.data["skillLevel"]
+        game.number_of_players = request.data["number_of_players"]
+        game.skill_level = request.data["skill_level"]
         game.gamer = gamer
 
-        gametype = GameType.objects.get(pk=request.data["gameTypeId"])
+        gametype = GameType.objects.get(pk=request.data["gametype"])
         game.gametype = gametype
         game.save()
 
