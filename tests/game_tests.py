@@ -142,3 +142,24 @@ class GameTests(APITestCase):
         self.assertEqual(json_response["maker"], "Hasbro")
         self.assertEqual(json_response["skill_level"], 2)
         self.assertEqual(json_response["number_of_players"], 4)
+
+    def test_delete_game(self):
+        """
+        Ensure we can delete an existing game.
+        """
+        game = Game()
+        game.gametype = GameType.objects.get(pk=1)
+        game.skill_level = 5
+        game.title = "Sorry"
+        game.maker = "Milton Bradley"
+        game.number_of_players = 4
+        game.gamer = Gamer.objects.get(pk=1)
+        game.save()
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.delete(f"/games/{game.id}")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # GET GAME AGAIN TO VERIFY 404 response
+        response = self.client.get(f"/games/{game.id}")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
