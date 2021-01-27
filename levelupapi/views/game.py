@@ -9,7 +9,6 @@ from rest_framework import status
 from levelupapi.models import Game, GameType, Gamer
 from levelupapi.serializers import GameSerializer
 
-
 class Games(ViewSet):
     """Level up games"""
 
