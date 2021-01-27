@@ -8,6 +8,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from levelupapi.models import Game, Event, Gamer, GamerEvent
+from levelupapi.serializers import EventSerializer
 from levelupapi.views.game import GameSerializer
 
 
@@ -180,37 +181,3 @@ class Events(ViewSet):
         # anything other than POST or DELETE, tell client that
         # the method is not supported
         return Response({}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-class EventUserSerializer(serializers.ModelSerializer):
-    """JSON serializer for event organizer's related Django user"""
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'email']
-
-class GamerEventerializer(serializers.ModelSerializer):
-    """JSON serializer for event organizer"""
-    user = EventUserSerializer(many=False)
-
-    class Meta:
-        model = Gamer
-        fields = ['user']
-
-class EventSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for events"""
-    organizer = GamerEventerializer(many=False)
-    game = GameSerializer(many=False)
-
-    class Meta:
-        model = Event
-        url = serializers.HyperlinkedIdentityField(
-            view_name='event',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'game', 'organizer',
-                  'description', 'date', 'time', 'joined')
-
-class GameSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for games"""
-    class Meta:
-        model = Game
-        fields = ('id', 'title', 'maker', 'number_of_players', 'skill_level')

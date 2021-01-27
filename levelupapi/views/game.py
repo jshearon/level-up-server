@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from levelupapi.models import Game, GameType, Gamer
-
+from levelupapi.serializers import GameSerializer
 
 class Games(ViewSet):
     """Level up games"""
@@ -136,18 +136,3 @@ class Games(ViewSet):
         serializer = GameSerializer(
             games, many=True, context={'request': request})
         return Response(serializer.data)
-
-class GameSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for games
-
-    Arguments:
-        serializer type
-    """
-    class Meta:
-        model = Game
-        url = serializers.HyperlinkedIdentityField(
-            view_name='game',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'title', 'maker', 'number_of_players', 'skill_level', 'gametype')
-        depth = 1

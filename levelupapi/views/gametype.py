@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from levelupapi.models import GameType
+from levelupapi.serializers import GameTypeSerializer
 
 
 class GameTypesViewSet(ViewSet):
@@ -36,17 +37,3 @@ class GameTypesViewSet(ViewSet):
         serializer = GameTypeSerializer(
             gametypes, many=True, context={'request': request})
         return Response(serializer.data)
-
-class GameTypeSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for game types
-
-    Arguments:
-        serializers
-    """
-    class Meta:
-        model = GameType
-        url = serializers.HyperlinkedIdentityField(
-            view_name='gametype',
-            lookup_field='id'
-        )
-        fields = ('id', 'type')

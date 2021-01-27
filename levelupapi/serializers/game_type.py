@@ -1,3 +1,6 @@
+from rest_framework import serializers
+from levelupapi.models import GameType
+
 class GameTypeSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for game types
 
