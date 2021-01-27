@@ -6,5 +6,6 @@
       "name": "level up",
       "database": "${workspaceFolder:levelup}/db.sqlite3"
     }
-  ]
+  ],
+  "python.linting.pylintEnabled": true
 }

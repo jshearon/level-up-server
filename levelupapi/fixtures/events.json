@@ -1,32 +1,35 @@
 [
   {
-      "model": "levelupapi.Event",
+      "model": "levelupapi.event",
       "pk": 1,
       "fields": {
-          "name": "Thanksgiving Monopoly Madness",
-          "datetime": "2020-11-25 20:45:45.166703",
-          "creator": 1,
-          "game": 1 
+          "organizer": 1,
+          "description": "Welcome To at lunch",
+          "game": 1,
+          "date": "2021-10-04",
+          "time": "12:00"
       }
   },
   {
-      "model": "levelupapi.Event",
+      "model": "levelupapi.event",
       "pk": 2,
       "fields": {
-        "name": "Sword and Sorcery Fest",
-        "datetime": "2020-11-22 12:20:45.166703",
-        "creator": 1,
-        "game": 2 
+          "organizer": 1,
+          "description": "Friday night Settlers and drinks",
+          "game": 2,
+          "date": "2021-08-14",
+          "time": "19:30"
       }
   },
   {
-      "model": "levelupapi.Event",
+      "model": "levelupapi.event",
       "pk": 3,
       "fields": {
-        "name": "Lan Party",
-        "datetime": "2020-11-30 08:30:45.166703",
-        "creator": 1,
-        "game": 3  
+          "organizer": 1,
+          "description": "Vale of the Frost King campaign. All weekend.",
+          "game": 3,
+          "date": "2021-04-20",
+          "time": "8:00"
       }
   }
 ]
