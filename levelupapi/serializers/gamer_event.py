@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from levelupapi.models import Gamer
-from django.contrib.auth.models import User
 from levelupapi.serializers import EventUserSerializer
 
 class GamerEventSerializer(serializers.ModelSerializer):

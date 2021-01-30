@@ -3,10 +3,8 @@ from rest_framework.serializers import StringRelatedField
 from levelupapi.models import Event
 from levelupapi.serializers import GameSerializer
 
-class EventSerializer(serializers.HyperlinkedModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for events"""
-    organizer = StringRelatedField()
-    game = GameSerializer(many=False)
 
     class Meta:
         model = Event
@@ -16,3 +14,4 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         )
         fields = ('id', 'url', 'game', 'organizer',
                   'description', 'date', 'time', 'joined')
+        depth = 1
